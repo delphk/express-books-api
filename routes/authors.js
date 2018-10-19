@@ -32,23 +32,7 @@ router.post("/", async (req, res, next) => {
 
 router.put("/:name", async (req, res, next) => {
   try {
-    const updatedAuthor = await Author.findOneAndUpdate(
-      req.params.name,
-      req.body,
-      { new: true }
-    );
-    res.json({ message: `updated author with id ${req.params.name}` });
-  } catch (err) {
-    next(err);
-  }
-});
-router.put("/:name", async (req, res, next) => {
-  try {
-    const updatedAuthor = await Author.findOneAndUpdate(
-      req.params.name,
-      req.body,
-      { new: true }
-    );
+    await Author.findOneAndUpdate(req.params.name, req.body, { new: true });
     res.json({ message: `updated author with name ${req.params.name}` });
   } catch (err) {
     next(err);
@@ -62,7 +46,7 @@ router.delete("/:id", async (req, res, next) => {
       req.body,
       { new: true }
     );
-    res.json({ message: `updated author with id ${req.params.id}` });
+    res.json({ message: `deleted author with id ${req.params.id}` });
   } catch (err) {
     next(err);
   }

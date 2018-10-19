@@ -44,7 +44,7 @@ router.post("/", async (req, res, next) => {
 
 router.put("/:id", async (req, res, next) => {
   try {
-    const updatedBook = await Book.findOneAndUpdate(req.params.id, req.body, {
+    await Book.findOneAndUpdate(req.params.id, req.body, {
       new: true
     });
     res.json({ message: `update book with id ${req.params.id}` });
