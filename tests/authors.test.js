@@ -103,6 +103,7 @@ test("GET /authors/:id should display all books by author", async () => {
   expect(response.status).toBe(200);
 
   // Assert based on the fake data added
+  console.log(response.body);
   expect(response.body.name).toEqual("jim");
   expect(response.body.age).toEqual(60);
 });
@@ -119,6 +120,7 @@ test("DELETE /authors/:id should display all books by author", async () => {
   expect(response.status).toBe(200);
 
   // Assert based on the fake data added
+
   expect(response.body).toEqual({
     message: `deleted author with id ${newAuthor._id}`
   });
