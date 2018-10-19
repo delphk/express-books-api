@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const app = require("./app");
 
 mongoose.connect(
-  "mongodb://localhost/express_books_api",
+  process.env.MONGODB_URI,
   { useNewUrlParser: true }
 );
 const db = mongoose.connection;

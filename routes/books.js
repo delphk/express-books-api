@@ -12,15 +12,6 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-// router.get("/:id", async (req, res, next) => {
-//   try {
-//     const result = await Book.find({ _id: req.params.id }).populate("author");
-//     res.json(result);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
-
 router.get("/:author", async (req, res, next) => {
   try {
     const result = await Book.find({ author: req.params.author });
